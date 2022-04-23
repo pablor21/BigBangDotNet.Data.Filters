@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackOnBuild>true</PackOnBuild>
+    <Authors>Pablo Ramirez &lt;pablo@pramirez.dev&gt;</Authors>
+    <Copyright>Pablo Ramirez @2022</Copyright>
+    <PackageTags>Linq Query Dynamic EntityFramework</PackageTags>
+    <Description>Dynamic query builder for Linq</Description>
+    <PackageLicenseUrl>https://github.com/pablor21/BigBangDotNet.Data.Filters/blob/master/LICENSE</PackageLicenseUrl>
+    <Owners>Pablo Ramírez</Owners>
+    <PackageProjectUrl>https://github.com/pablor21/BigBangDotNet.Data.Filters</PackageProjectUrl>
+    <Summary>Dynamic query builder for linq</Summary>
+    <Title>BigBangDotNet.Data.Filters</Title>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Parsers\"/>
+    <Folder Include="Utils\"/>
+  </ItemGroup>
+</Project>

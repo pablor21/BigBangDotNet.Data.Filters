@@ -1,0 +1,40 @@
+using System.Linq;
+using System.Linq.Expressions;
+using BigBangDotNet.Data.Filters.Parsers.Linq;
+
+namespace BigBangDotNet.Data.Filters
+{
+    /// <summary>
+    /// Linq Extension Methods for filter and conditions
+    /// </summary>
+    public static class QueryableExtensions
+    {
+        public static IQueryable<T> Filter<T>(this IQueryable<T> source, IFilter filter) where T : class, new()
+        {
+            return filter.Apply<T>(source);
+        }
+
+        public static IQueryable<T> Filter<T>(this IQueryable<T> source, WhereCondition condition) where T : class, new()
+        {
+            return source.Filter<T>(new Filter()
+            {
+                Where = condition
+            });
+        }
+
+        public static IQueryable<T> Filter<T>(this IQueryable<T> source, string json) where T : class, new()
+        {
+            return source.Filter<T>(BigBangDotNet.Data.Filters.Filter.FromJsonString(json));
+        }
+
+        public static IQueryable<T> Where<T>(this IQueryable<T> source, WhereCondition condition) where T : class, new()
+        {
+            return source.Filter<T>(condition);
+        }
+
+        public static IQueryable<T> Select<T>(this IQueryable<T> source, string select) where T : class, new()
+        {
+            return LinqSelectParser.ParseSelect<T>(select, source);
+        }
+    }
+}
